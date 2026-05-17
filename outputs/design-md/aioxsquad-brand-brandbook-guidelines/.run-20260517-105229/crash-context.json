@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "crashed_at": "2026-05-17T10:52:30.331Z",
+  "last_phase": "phase_1_fetch",
+  "completed_phases": {},
+  "error": {
+    "message": "Request failed with status code 403",
+    "name": "AxiosError",
+    "stack": "AxiosError: Request failed with status code 403\n    at settle (/home/user/Minha-biblioteca-de-prompts/.claude/skills/design-md/node_modules/axios/dist/node/axios.cjs:2069:12)\n    at IncomingMessage.handleStreamEnd (/home/user/Minha-biblioteca-de-prompts/.claude/skills/design-md/node_modules/axios/dist/node/axios.cjs:3713:11)\n    at IncomingMessage.emit (node:events:531:35)\n    at endReadableNT (node:internal/streams/readable:1698:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\n    at Axios.request (/home/user/Minha-biblioteca-de-prompts/.claude/skills/design-md/node_modules/axios/dist/node/axios.cjs:4992:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async fetchHtml (/home/user/Minha-biblioteca-de-prompts/.claude/skills/design-md/lib/fetch.cjs:25:15)\n    at async main (/home/user/Minha-biblioteca-de-prompts/.claude/skills/design-md/run.cjs:279:43)",
+    "code": "ERR_BAD_REQUEST",
+    "exit_code": null,
+    "details": null
+  },
+  "inputs": {
+    "url": "https://brand.aioxsquad.ai/brandbook/guidelines",
+    "out_dir": "/home/user/Minha-biblioteca-de-prompts/outputs/design-md/aioxsquad-brand-brandbook-guidelines/.run-20260517-105229",
+    "inputs_dir": "/home/user/Minha-biblioteca-de-prompts/outputs/design-md/aioxsquad-brand-brandbook-guidelines/.run-20260517-105229/inputs"
+  },
+  "partial_outputs": [
+    "inputs"
+  ],
+  "debug_hint": "Initial HTTP fetch failed. Check URL accessibility and rate limits."
+}

@@ -1,0 +1,5 @@
+# Node deps inside the design-md skill
+.claude/skills/design-md/node_modules/
+.claude/skills/design-md/package-lock.json
+*.log
+.DS_Store
