@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gauden Brandbook — v1.0 · 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:#EFE9DC; --paper-2:#E6DFCF; --cream:#F6F1E6;
+  --ink:#14110C; --ink-soft:#2A2620;
+  --line:rgba(20,17,12,0.14); --line-dark:rgba(246,241,230,0.18);
+  --okto:#1F6CC9; --czech:#2A6E1F; --porter:#5C2C18;
+  --irish:#EB5A1E; --amber:#D63A2A; --english:#E8217B;
+  --sevenhops:#B5D34A; --free:#4DC9EC;
+  --pilsen:#F4C115; --session:#9BD32C; --ipa:#2DC9C9;
+  --r-sm:6px; --r-md:10px; --r-lg:18px;
+  --font-display:'Anton','Impact',sans-serif;
+  --font-body:'Montserrat',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);font-weight:500;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:var(--ink);display:flex;align-items:center;padding:0 40px;height:48px;border-bottom:1px solid var(--line-dark)}
+.nav-brand{font-family:var(--font-display);font-size:15px;letter-spacing:.1em;color:var(--cream);text-decoration:none;margin-right:32px;white-space:nowrap}
+.nav-links{display:flex;overflow-x:auto;scrollbar-width:none;flex:1}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,241,230,.45);text-decoration:none;padding:0 14px;height:48px;display:flex;align-items:center;white-space:nowrap;border-right:1px solid var(--line-dark);transition:color .2s}
+.nav-links a:first-child{border-left:1px solid var(--line-dark)}
+.nav-links a:hover{color:var(--cream)}
+
+/* COVER */
+.cover{min-height:100vh;background:var(--ink);color:var(--cream);display:flex;flex-direction:column;justify-content:space-between;padding:48px 56px;position:relative;overflow:hidden}
+.cover-watermark{position:absolute;right:-5%;top:50%;transform:translateY(-50%);width:55vw;height:55vw;opacity:.07;pointer-events:none}
+.lockup{display:flex;align-items:center;gap:14px;z-index:1}
+.lockup-spiral{width:30px;height:30px;flex-shrink:0}
+.lockup-name{font-family:var(--font-body);font-weight:800;font-size:17px;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);line-height:1;display:block}
+.lockup-tagline{font-family:var(--font-body);font-weight:600;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,241,230,.5);line-height:1;display:block;margin-top:3px}
+.cover-hero{display:flex;flex-direction:column;gap:20px;z-index:1}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(246,241,230,.4)}
+.cover-title{font-family:var(--font-display);font-size:clamp(80px,18vw,260px);line-height:.9;text-transform:uppercase;color:var(--cream)}
+.cover-sub{font-size:17px;font-weight:500;line-height:1.5;color:rgba(246,241,230,.65);max-width:440px}
+.cover-footer{display:flex;justify-content:space-between;align-items:flex-end;z-index:1;flex-wrap:wrap;gap:24px}
+.meta-block{display:flex;flex-direction:column;gap:3px}
+.meta-key{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,241,230,.3)}
+.meta-val{font-size:12px;font-weight:600;color:rgba(246,241,230,.7)}
+.rainbow-bar{display:flex;height:7px;border-radius:2px;overflow:hidden;width:200px}
+.rainbow-bar span{flex:1;display:block}
+
+/* SECTIONS */
+.section{padding:110px 56px}
+.section-dark{background:var(--ink);color:var(--cream)}
+.section-paper2{background:var(--paper-2)}
+.section-cream{background:var(--cream)}
+.section-inksft{background:var(--ink-soft);color:var(--cream)}
+.sec-label{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(20,17,12,.35);margin-bottom:14px}
+.section-dark .sec-label,.section-inksft .sec-label{color:rgba(246,241,230,.3)}
+.sec-title{font-family:var(--font-display);font-size:clamp(40px,7vw,88px);line-height:.9;text-transform:uppercase;margin-bottom:48px}
+.divider{height:1px;background:var(--line);margin:40px 0}
+.section-dark .divider,.section-inksft .divider{background:var(--line-dark)}
+.sub-label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,17,12,.4);margin-bottom:14px}
+.section-dark .sub-label{color:rgba(246,241,230,.35)}
+
+/* MANIFESTO */
+.manifesto-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.manifesto-quote{font-family:var(--font-display);font-size:clamp(36px,5vw,72px);line-height:.92;text-transform:uppercase}
+.manifesto-body{font-size:16px;line-height:1.65;color:rgba(20,17,12,.7)}
+.manifesto-body p{margin-bottom:18px}
+.manifesto-body p:last-child{margin-bottom:0}
+.manifesto-since{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(20,17,12,.35);margin-top:28px}
+
+/* COLORS */
+.swatches-neutrals{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:48px}
+.swatch{border-radius:var(--r-md);overflow:hidden;border:1px solid var(--line)}
+.swatch-block{height:80px}
+.swatch-info{background:var(--cream);padding:10px 12px}
+.swatch-token{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(20,17,12,.4);font-family:monospace}
+.swatch-hex{font-size:12px;font-weight:600;color:var(--ink);font-family:monospace;margin-top:2px}
+.swatch-name{font-size:11px;font-weight:500;color:rgba(20,17,12,.5);margin-top:2px}
+.line-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.line-swatch{border-radius:var(--r-md);overflow:hidden}
+.line-block{height:90px;display:flex;align-items:flex-end;padding:9px}
+.line-token{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;line-height:1.3}
+.line-info{background:var(--cream);padding:8px 10px}
+.line-beer{font-size:12px;font-weight:600;color:var(--ink)}
+.line-hex{font-size:10px;color:rgba(20,17,12,.45);font-family:monospace}
+.rainbow-preview{display:flex;height:10px;border-radius:2px;overflow:hidden;margin-top:40px}
+.rainbow-preview span{flex:1}
+
+/* TYPOGRAPHY */
+.type-specimen{margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid var(--line-dark)}
+.type-specimen:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.type-meta{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,241,230,.3);margin-bottom:10px;font-family:monospace}
+.t-display{font-family:var(--font-display);font-size:clamp(48px,11vw,140px);line-height:.9;text-transform:uppercase;letter-spacing:-.005em;color:var(--cream)}
+.t-h1{font-family:var(--font-display);font-size:clamp(38px,8vw,92px);line-height:.88;text-transform:uppercase;color:var(--cream)}
+.t-h2{font-family:var(--font-display);font-size:clamp(28px,5vw,60px);line-height:.92;text-transform:uppercase;color:var(--cream)}
+.t-h3{font-family:var(--font-display);font-size:38px;line-height:.95;text-transform:uppercase;color:var(--cream)}
+.t-lead{font-size:18px;font-weight:500;line-height:1.5;max-width:58ch;color:rgba(246,241,230,.85)}
+.t-body{font-size:16px;font-weight:500;line-height:1.55;max-width:62ch;color:rgba(246,241,230,.7)}
+.t-caption{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(246,241,230,.5)}
+
+/* LAYOUT */
+.layout-demo{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;margin-bottom:48px}
+.spacing-scale{display:flex;flex-direction:column;gap:8px}
+.sp-row{display:flex;align-items:center;gap:16px}
+.sp-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(20,17,12,.4);font-family:monospace;width:52px;flex-shrink:0}
+.sp-bar{background:var(--ink);border-radius:2px;height:18px;flex-shrink:0}
+.sp-note{font-size:11px;color:rgba(20,17,12,.45)}
+
+/* COMPONENTS */
+.comp-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:var(--r-sm);font-family:var(--font-body);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:1px solid transparent;transition:transform .15s,box-shadow .15s,border-color .15s;white-space:nowrap;text-decoration:none}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--ink);color:var(--cream)}
+.btn-primary:hover{box-shadow:0 4px 12px rgba(20,17,12,.25)}
+.btn-secondary{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-secondary:hover{border-color:var(--ink)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{text-decoration:underline}
+.btn-destruct{background:var(--amber);color:var(--cream)}
+.btn-sm{padding:8px 16px;font-size:11px}
+.btn-lg{padding:18px 32px;font-size:14px}
+.neck-labels{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px}
+.neck-label{padding:14px 18px;border-radius:var(--r-sm)}
+.nl-name{font-family:var(--font-display);font-size:20px;text-transform:uppercase;line-height:1}
+.nl-meta{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-top:4px}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-bottom:36px}
+.card{background:var(--cream);border:1px solid var(--line);border-radius:var(--r-md);padding:22px}
+.card-line{border-left:4px solid}
+.card-eyebrow{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,17,12,.4);margin-bottom:7px}
+.card-title{font-family:var(--font-display);font-size:26px;text-transform:uppercase;line-height:.95;margin-bottom:10px}
+.card-body{font-size:13px;line-height:1.55;color:rgba(20,17,12,.6)}
+.badges-row{display:flex;flex-wrap:wrap;gap:7px}
+.badge{padding:4px 10px;border-radius:var(--r-sm);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+
+/* VOICE */
+.voice-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:40px}
+.voice-card{background:var(--ink-soft);border-radius:var(--r-md);padding:26px;border:1px solid var(--line-dark)}
+.vc-type{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,241,230,.3);margin-bottom:10px}
+.vc-example{font-family:var(--font-display);font-size:clamp(18px,2.5vw,30px);text-transform:uppercase;line-height:.95;color:var(--cream);margin-bottom:14px}
+.vc-rule{font-size:12px;font-weight:500;line-height:1.55;color:rgba(246,241,230,.55)}
+.vocab-row{display:flex;flex-wrap:wrap;gap:7px}
+
+/* PORTFOLIO */
+.beers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.beer-card{border-radius:var(--r-md);overflow:hidden}
+.beer-header{padding:24px 18px 16px;position:relative}
+.beer-num{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;opacity:.55;margin-bottom:6px}
+.beer-name{font-family:var(--font-display);font-size:24px;text-transform:uppercase;line-height:.9}
+.beer-style{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-top:5px;opacity:.65}
+.beer-foot{background:var(--cream);padding:11px 18px}
+.beer-hex{font-size:11px;font-weight:600;font-family:monospace;color:var(--ink)}
+.beer-pair{font-size:10px;color:rgba(20,17,12,.45);margin-top:2px}
+
+/* MOTION */
+.motion-wrap{display:grid;grid-template-columns:180px 1fr;gap:64px;align-items:start}
+.motion-icon-wrap{text-align:center}
+.motion-svg{width:140px;height:140px;animation:spiral-spin 8s linear infinite}
+@keyframes spiral-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.motion-icon-label{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(246,241,230,.3);margin-top:12px}
+.motion-table{width:100%;border-collapse:collapse}
+.motion-table th{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(246,241,230,.3);padding:10px 14px;border-bottom:1px solid var(--line-dark);text-align:left}
+.motion-table td{padding:12px 14px;border-bottom:1px solid var(--line-dark);font-size:13px;color:rgba(246,241,230,.75)}
+.motion-table td:first-child{font-family:var(--font-display);font-size:17px;text-transform:uppercase;color:var(--cream)}
+.motion-table td:nth-child(2){font-family:monospace;font-size:12px;color:var(--pilsen)}
+
+/* CODE */
+.code-wrap{background:var(--ink-soft);border-radius:var(--r-md);padding:28px 32px;overflow-x:auto;border:1px solid var(--line-dark)}
+.code-wrap pre{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;line-height:1.7;color:rgba(246,241,230,.75);white-space:pre}
+.cm{color:rgba(246,241,230,.28)} .cn{color:var(--free)} .cv{color:var(--pilsen)}
+
+/* AGENT */
+.agent-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.agent-rule{background:var(--ink-soft);border-radius:var(--r-md);padding:18px 22px;border:1px solid var(--line-dark);display:flex;gap:14px;align-items:flex-start}
+.ar-num{font-family:var(--font-display);font-size:28px;color:rgba(246,241,230,.12);line-height:1;flex-shrink:0;min-width:34px}
+.ar-text{font-size:12px;font-weight:500;line-height:1.55;color:rgba(246,241,230,.7)}
+.ar-text strong{color:var(--cream);font-weight:700}
+code.tk{background:rgba(255,255,255,.06);padding:1px 5px;border-radius:3px;font-family:monospace;font-size:11px;color:var(--pilsen)}
+
+/* FOOTER */
+.footer{background:var(--ink);padding:56px;display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--line-dark)}
+.footer-brand{font-family:var(--font-display);font-size:52px;text-transform:uppercase;line-height:.9;color:rgba(246,241,230,.12)}
+.footer-meta{text-align:right;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,241,230,.3);line-height:2}
+
+@media(max-width:768px){
+  .section{padding:64px 24px}
+  .cover{padding:32px 24px}
+  .manifesto-grid,.voice-grid,.agent-grid{grid-template-columns:1fr}
+  .motion-wrap{grid-template-columns:1fr}
+  .layout-demo{grid-template-columns:1fr}
+  .footer{flex-direction:column;gap:20px}
+  .footer-meta{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-brand" href="#cover">GAUDEN</a>
+  <div class="nav-links">
+    <a href="#manifesto">Manifesto</a>
+    <a href="#cor">Cor</a>
+    <a href="#tipo">Tipografia</a>
+    <a href="#layout">Layout</a>
+    <a href="#comp">Componentes</a>
+    <a href="#voz">Voz</a>
+    <a href="#portfolio">Portfólio</a>
+    <a href="#motion">Motion</a>
+    <a href="#tokens">Tokens</a>
+    <a href="#agente">Agente</a>
+  </div>
+</nav>
+
+<!-- COVER -->
+<section id="cover" class="cover">
+  <svg class="cover-watermark" viewBox="0 0 100 100" fill="none">
+    <path id="sp-cover" stroke="var(--cream)" stroke-width="1.2" fill="none"/>
+  </svg>
+
+  <div class="lockup">
+    <svg class="lockup-spiral" viewBox="0 0 100 100" fill="none">
+      <path id="sp-lockup" stroke="var(--cream)" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+    </svg>
+    <div>
+      <span class="lockup-name">Gauden</span>
+      <span class="lockup-tagline">× Experience ×</span>
+    </div>
+  </div>
+
+  <div class="cover-hero">
+    <p class="eyebrow">Brandbook · Design System · v1.0 · 2026</p>
+    <h1 class="cover-title">GAUDEN</h1>
+    <p class="cover-sub">Uma experiência em cada gole. Cerveja artesanal com sotaque curitibano — desde 2007.</p>
+  </div>
+
+  <div class="cover-footer">
+    <div class="meta-block">
+      <span class="meta-key">Origem</span>
+      <span class="meta-val">Curitiba — Paraná · Brasil</span>
+    </div>
+    <div class="meta-block">
+      <span class="meta-key">Fundada</span>
+      <span class="meta-val">2007</span>
+    </div>
+    <div class="meta-block">
+      <span class="meta-key">Categoria</span>
+      <span class="meta-val">Cerveja Artesanal · Puro Malte</span>
+    </div>
+    <div class="meta-block">
+      <span class="meta-key">11 Estilos · Linha de cores</span>
+      <div class="rainbow-bar" style="margin-top:6px">
+        <span style="background:var(--pilsen)"></span><span style="background:var(--session)"></span>
+        <span style="background:var(--ipa)"></span><span style="background:var(--czech)"></span>
+        <span style="background:var(--okto)"></span><span style="background:var(--porter)"></span>
+        <span style="background:var(--irish)"></span><span style="background:var(--amber)"></span>
+        <span style="background:var(--english)"></span><span style="background:var(--sevenhops)"></span>
+        <span style="background:var(--free)"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section id="manifesto" class="section">
+  <p class="sec-label">02 — Manifesto</p>
+  <div class="manifesto-grid">
+    <div>
+      <h2 class="manifesto-quote">Uma experiência em cada gole.</h2>
+    </div>
+    <div class="manifesto-body">
+      <p>A Gauden nasceu em Curitiba para celebrar o ritual da cerveja artesanal — a tradição puro malte, a mesa cheia, o brinde compartilhado.</p>
+      <p>Não acreditamos em cerveja como produto. Acreditamos em cerveja como <strong>momento</strong>. O que entra no copo importa. O que acontece em volta da mesa importa <strong>mais</strong>.</p>
+      <p>Cada estilo tem sua identidade. Todos compartilham o mesmo DNA: matéria-prima brasileira, escola clássica, sotaque curitibano, convite aberto.</p>
+      <p><em>Abra uma. Brinde. Senta na mesa. Fica. É só uma cerveja. E é tudo.</em></p>
+      <p class="manifesto-since">Since 2007 · × Experience × · Curitiba · Paraná · Brasil</p>
+    </div>
+  </div>
+</section>
+
+<!-- COR -->
+<section id="cor" class="section section-paper2">
+  <p class="sec-label">03 — Sistema de Cor</p>
+  <h2 class="sec-title">Três camadas.</h2>
+
+  <p class="sub-label">Neutros Institucionais</p>
+  <div class="swatches-neutrals">
+    <div class="swatch"><div class="swatch-block" style="background:#14110C"></div><div class="swatch-info"><div class="swatch-token">--ink</div><div class="swatch-hex">#14110C</div><div class="swatch-name">Gauden Black</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#2A2620"></div><div class="swatch-info"><div class="swatch-token">--ink-soft</div><div class="swatch-hex">#2A2620</div><div class="swatch-name">Tinta suave</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#EFE9DC;border-bottom:1px solid rgba(20,17,12,.1)"></div><div class="swatch-info"><div class="swatch-token">--paper</div><div class="swatch-hex">#EFE9DC</div><div class="swatch-name">Canvas principal</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#E6DFCF;border-bottom:1px solid rgba(20,17,12,.1)"></div><div class="swatch-info"><div class="swatch-token">--paper-2</div><div class="swatch-hex">#E6DFCF</div><div class="swatch-name">Surface alternativa</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#F6F1E6;border-bottom:1px solid rgba(20,17,12,.1)"></div><div class="swatch-info"><div class="swatch-token">--cream</div><div class="swatch-hex">#F6F1E6</div><div class="swatch-name">Label cream</div></div></div>
+  </div>
+
+  <p class="sub-label">Cores de Linha — Uma por Cerveja</p>
+  <div class="line-grid">
+    <div class="line-swatch"><div class="line-block" style="background:#F4C115"><span class="line-token" style="color:#14110C">--pilsen</span></div><div class="line-info"><div class="line-beer">Pilsen</div><div class="line-hex">#F4C115 · golden</div></div></div>
+    <div class="line-swatch"><div class="line-block" style="background:#9BD32C"><span class="line-token" style="color:#14110C">--session</span></div><div class="line-info"><div class="line-beer">Session IPA</div><div class="line-hex">#9BD32C · lime</div></div></div>
+    <div class="line-swatch"><div class="line-block" style="background:#2DC9C9"><span class="line-token" style="color:#14110C">--ipa</span></div><div class="line-info"><div class="line-beer">IPA</div><div class="line-hex">#2DC9C9 · teal</div></div></div>
+    <div class="line-swatch"><div class="line-block" style="background:#2A6E1F"><span class="line-token" style="color:#F6F1E6">--czech</span></div><div class="line-info"><div class="line-beer">Czech Pils</div><div class="line-hex">#2A6E1F · forest</div></div></div>
+    <div class="line-swatch"><div class="line-block" style="background:#1F6CC9"><span class="line-token" style="color:#F6F1E6">--okto</span></div><div class="line-info"><div class="line-beer">Oktoberfest</div><div class="line-hex">#1F6CC9 · royal blue</div></div></div>
+    <div class="line-swatch"><div class="line-block" style="background:#5C2C18"><span class="line-token" style="color:#F6F1E6">--porter</span></div><div class="line-info"><div class="line-beer">Chocolate Porter</div><div class="line-hex">#5C2C18 · cacao</div></div></div>
+    <div class="line-swatch"><div class="line-block" style="background:#EB5A1E"><span class="line-token" style="color:#14110C">--irish</span></div><div class="line-info"><div class="line-beer">Irish Red Ale</div><div class="line-hex">#EB5A1E · orange</div></div></div>
+    <div class="line-swatch"><div class="line-block" style="background:#D63A2A"><span class="line-token" style="color:#F6F1E6">--amber</span></div><div class="line-info"><div class="line-beer">Amber Lager</div><div class="line-hex">#D63A2A · red</div></div></div>
+    <div class="line-swatch"><div class="line-block" style="background:#E8217B"><span class="line-token" style="color:#F6F1E6">--english</span></div><div class="line-info"><div class="line-beer">English IPA</div><div class="line-hex">#E8217B · magenta</div></div></div>
+    <div class="line-swatch"><div class="line-block" style="background:#B5D34A"><span class="line-token" style="color:#14110C">--sevenhops</span></div><div class="line-info"><div class="line-beer">7 Hops</div><div class="line-hex">#B5D34A · lime ink</div></div></div>
+    <div class="line-swatch"><div class="line-block" style="background:#4DC9EC"><span class="line-token" style="color:#14110C">--free</span></div><div class="line-info"><div class="line-beer">IPA Free</div><div class="line-hex">#4DC9EC · sky</div></div></div>
+  </div>
+
+  <div style="margin-top:40px">
+    <p class="sub-label">Régua Arco-Íris — borda inferior de fotos de apoio, nunca decoração geral</p>
+    <div class="rainbow-preview">
+      <span style="background:var(--pilsen)"></span><span style="background:var(--session)"></span>
+      <span style="background:var(--ipa)"></span><span style="background:var(--czech)"></span>
+      <span style="background:var(--okto)"></span><span style="background:var(--porter)"></span>
+      <span style="background:var(--irish)"></span><span style="background:var(--amber)"></span>
+      <span style="background:var(--english)"></span><span style="background:var(--sevenhops)"></span>
+      <span style="background:var(--free)"></span>
+    </div>
+  </div>
+</section>
+
+<!-- TIPOGRAFIA -->
+<section id="tipo" class="section section-dark">
+  <p class="sec-label">04 — Tipografia</p>
+  <h2 class="sec-title">Anton + Montserrat.</h2>
+
+  <div class="type-specimen">
+    <p class="type-meta">Display · Anton 400 · clamp(48–140px) · lh 0.90 · ls -0.5%</p>
+    <p class="t-display">VIVA A OKTOBERFEST NA SALA DA SUA CASA.</p>
+  </div>
+  <div class="type-specimen">
+    <p class="type-meta">H1 · Anton 400 · clamp(38–92px) · lh 0.88</p>
+    <p class="t-h1">TRADIÇÃO TCHECA AGORA NO BRASIL.</p>
+  </div>
+  <div class="type-specimen">
+    <p class="type-meta">H2 · Anton 400 · clamp(28–60px) · lh 0.92</p>
+    <p class="t-h2">CHOCOLATE INTENSO. SABOR INCRÍVEL.</p>
+  </div>
+  <div class="type-specimen">
+    <p class="type-meta">H3 · Anton 400 · 38px · lh 0.95</p>
+    <p class="t-h3">SORTE SUA PODER PROVAR.</p>
+  </div>
+  <div class="type-specimen">
+    <p class="type-meta">Lead · Montserrat 500 · 18px · lh 1.5 · max 58ch</p>
+    <p class="t-lead">Mergulhe na verdadeira essência da Boêmia com a nova Gauden Czech Pils. Nossa puro malte de 6,1% é uma homenagem ao estilo mais tradicional do mundo.</p>
+  </div>
+  <div class="type-specimen">
+    <p class="type-meta">Body · Montserrat 500 · 16px · lh 1.55</p>
+    <p class="t-body">Uma puro malte de corpo elegante e 6,1% de teor alcoólico. Notas de pão e cereais, equilíbrio sofisticado e alta refrescância. Feita para quem aprecia a tradição.</p>
+  </div>
+  <div class="type-specimen">
+    <p class="type-meta">Caption · Montserrat 700 · 11px · tracking +18% · UPPER</p>
+    <p class="t-caption">355 ml · Cerveja Puro Malte · 6,1% vol · Produzido em Curitiba — PR · Indústria Brasileira</p>
+  </div>
+</section>
+
+<!-- LAYOUT -->
+<section id="layout" class="section">
+  <p class="sec-label">05 — Espaçamento & Layout</p>
+  <h2 class="sec-title">Grade 12 colunas.</h2>
+
+  <div class="layout-demo">
+    <div style="background:var(--okto);padding:48px;color:var(--cream)">
+      <p style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;opacity:.55;margin-bottom:10px">Cols 1–6 · cor sólida</p>
+      <p style="font-family:var(--font-display);font-size:clamp(26px,4.5vw,52px);text-transform:uppercase;line-height:.9">LOCKUP + TÍTULO ANTON.</p>
+      <p style="font-size:13px;font-weight:500;margin-top:14px;opacity:.8">Montserrat 500 · 16px · corpo narrativo</p>
+    </div>
+    <div style="background:var(--paper-2);padding:48px;display:flex;align-items:center;justify-content:center">
+      <div style="text-align:center;color:rgba(20,17,12,.3)">
+        <div style="font-size:52px;line-height:1">📸</div>
+        <p style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-top:8px">Cols 7–12<br>Foto heroica do produto</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="sub-label">Escala de Espaçamento</p>
+  <div class="spacing-scale">
+    <div class="sp-row"><span class="sp-label">4px</span><div class="sp-bar" style="width:4px"></div><span class="sp-note">base unit</span></div>
+    <div class="sp-row"><span class="sp-label">8px</span><div class="sp-bar" style="width:8px"></div></div>
+    <div class="sp-row"><span class="sp-label">12px</span><div class="sp-bar" style="width:12px"></div></div>
+    <div class="sp-row"><span class="sp-label">16px</span><div class="sp-bar" style="width:16px"></div></div>
+    <div class="sp-row"><span class="sp-label">24px</span><div class="sp-bar" style="width:24px"></div><span class="sp-note">gutter</span></div>
+    <div class="sp-row"><span class="sp-label">32px</span><div class="sp-bar" style="width:32px"></div></div>
+    <div class="sp-row"><span class="sp-label">40px</span><div class="sp-bar" style="width:40px"></div></div>
+    <div class="sp-row"><span class="sp-label">56px</span><div class="sp-bar" style="width:56px"></div><span class="sp-note">page padding</span></div>
+    <div class="sp-row"><span class="sp-label">80px</span><div class="sp-bar" style="width:80px"></div></div>
+    <div class="sp-row"><span class="sp-label">110px</span><div class="sp-bar" style="width:110px"></div><span class="sp-note">section padding-y</span></div>
+  </div>
+</section>
+
+<!-- COMPONENTES -->
+<section id="comp" class="section section-cream">
+  <p class="sec-label">06 — Componentes</p>
+  <h2 class="sec-title">Botões, labels, cards.</h2>
+
+  <p class="sub-label">Botões</p>
+  <div class="comp-row">
+    <button class="btn btn-primary">Conheça a linha →</button>
+    <button class="btn btn-secondary">Saiba mais →</button>
+    <button class="btn btn-ghost">Onde encontrar →</button>
+    <button class="btn btn-destruct">Esgotado</button>
+  </div>
+  <div class="comp-row">
+    <button class="btn btn-primary btn-sm">Compre agora →</button>
+    <button class="btn btn-primary">Compre agora →</button>
+    <button class="btn btn-primary btn-lg">Compre agora →</button>
+  </div>
+
+  <div class="divider"></div>
+  <p class="sub-label">Neck Labels</p>
+  <div class="neck-labels">
+    <div class="neck-label" style="background:var(--pilsen)"><div class="nl-name" style="color:var(--ink)">GAUDEN PILSEN</div><div class="nl-meta" style="color:rgba(20,17,12,.65)">600 ml · 4.7% vol</div></div>
+    <div class="neck-label" style="background:var(--okto)"><div class="nl-name" style="color:var(--cream)">GAUDEN OKTOBERFEST</div><div class="nl-meta" style="color:rgba(246,241,230,.65)">600 ml · 6.1% vol</div></div>
+    <div class="neck-label" style="background:var(--english)"><div class="nl-name" style="color:var(--cream)">GAUDEN ENGLISH IPA</div><div class="nl-meta" style="color:rgba(246,241,230,.65)">600 ml · 7.1% vol</div></div>
+    <div class="neck-label" style="background:var(--porter)"><div class="nl-name" style="color:var(--cream)">GAUDEN PORTER</div><div class="nl-meta" style="color:rgba(246,241,230,.65)">600 ml · 6.3% vol</div></div>
+    <div class="neck-label" style="background:var(--irish)"><div class="nl-name" style="color:var(--ink)">GAUDEN IRISH RED</div><div class="nl-meta" style="color:rgba(20,17,12,.65)">600 ml · 5.2% vol</div></div>
+  </div>
+
+  <div class="divider"></div>
+  <p class="sub-label">Cards</p>
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-eyebrow">Card default</div>
+      <div class="card-title">Czech Pils.</div>
+      <div class="card-body">Tradição tcheca agora no Brasil. Nossa puro malte de 6,1% é uma homenagem ao estilo mais tradicional do mundo.</div>
+    </div>
+    <div class="card card-line" style="border-left-color:var(--okto)">
+      <div class="card-eyebrow">Brand Line Card — Oktoberfest</div>
+      <div class="card-title">Viva a oktoberfest.</div>
+      <div class="card-body">A tradição alemã em uma puro malte de corpo elegante. Notas de pão e cereais, 6,1% vol.</div>
+    </div>
+    <div class="card" style="background:var(--irish);border-color:transparent">
+      <div class="card-eyebrow" style="color:rgba(20,17,12,.55)">Hero Card — Irish Red</div>
+      <div class="card-title" style="color:var(--ink)">Irish red ale.</div>
+      <div class="card-body" style="color:rgba(20,17,12,.65)">Equilibrada, refrescante. Notas tostadas, caramelo suave e final limpo.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <p class="sub-label">Badges</p>
+  <div class="badges-row">
+    <span class="badge" style="background:var(--paper-2);color:var(--ink)">Puro Malte</span>
+    <span class="badge" style="background:var(--ink);color:var(--cream)">Gauden</span>
+    <span class="badge" style="background:var(--pilsen);color:var(--ink)">Pilsen</span>
+    <span class="badge" style="background:var(--okto);color:var(--cream)">Oktoberfest</span>
+    <span class="badge" style="background:var(--czech);color:var(--cream)">Czech Pils</span>
+    <span class="badge" style="background:var(--porter);color:var(--cream)">Porter</span>
+    <span class="badge" style="background:#2A8A3A;color:var(--cream)">Disponível</span>
+    <span class="badge" style="background:var(--amber);color:var(--cream)">Esgotado</span>
+  </div>
+</section>
+
+<!-- VOZ -->
+<section id="voz" class="section section-dark">
+  <p class="sec-label">07 — Voz & Tom</p>
+  <h2 class="sec-title">Direta. Calorosa. Curitibana.</h2>
+
+  <div class="voice-grid">
+    <div class="voice-card">
+      <p class="vc-type">Manchete · Imperativo</p>
+      <p class="vc-example">Viva a Oktoberfest na sala da sua casa.</p>
+      <p class="vc-rule">Verbo que convida + benefício + local cotidiano. Máx 8 palavras. Para hero de campanha.</p>
+    </div>
+    <div class="voice-card">
+      <p class="vc-type">Manchete · Afirmação</p>
+      <p class="vc-example">Sorte sua poder provar.</p>
+      <p class="vc-rule">Inverte a expectativa. Humor regional sem ironia ácida. Para lançamentos e ativações.</p>
+    </div>
+    <div class="voice-card">
+      <p class="vc-type">Descrição · Sensorial</p>
+      <p class="vc-example">Chocolate intenso. Sabor incrível.</p>
+      <p class="vc-rule">Sensação + qualidade. Pontos finais marcam o ritmo. Para legendas e cards de produto.</p>
+    </div>
+    <div class="voice-card">
+      <p class="vc-type">Body · Narrativo</p>
+      <p class="vc-example">Tradição tcheca agora no Brasil.</p>
+      <p class="vc-rule">Origem → processo → convite (sinta / descubra / abra uma). Para corpo de campanha.</p>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+    <div>
+      <p class="sub-label">✓ Power Words</p>
+      <div class="vocab-row">
+        <span class="badge" style="background:rgba(246,241,230,.1);color:rgba(246,241,230,.8)">Ritual</span>
+        <span class="badge" style="background:rgba(246,241,230,.1);color:rgba(246,241,230,.8)">Brinde</span>
+        <span class="badge" style="background:rgba(246,241,230,.1);color:rgba(246,241,230,.8)">Mesa cheia</span>
+        <span class="badge" style="background:rgba(246,241,230,.1);color:rgba(246,241,230,.8)">Puro malte</span>
+        <span class="badge" style="background:rgba(246,241,230,.1);color:rgba(246,241,230,.8)">× Experience ×</span>
+        <span class="badge" style="background:rgba(246,241,230,.1);color:rgba(246,241,230,.8)">Sotaque curitibano</span>
+        <span class="badge" style="background:rgba(246,241,230,.1);color:rgba(246,241,230,.8)">Viva</span>
+        <span class="badge" style="background:rgba(246,241,230,.1);color:rgba(246,241,230,.8)">Abra uma</span>
+        <span class="badge" style="background:rgba(246,241,230,.1);color:rgba(246,241,230,.8)">Sinta</span>
+        <span class="badge" style="background:rgba(246,241,230,.1);color:rgba(246,241,230,.8)">Descubra</span>
+      </div>
+    </div>
+    <div>
+      <p class="sub-label">✕ Ban List</p>
+      <div class="vocab-row">
+        <span class="badge" style="background:rgba(214,58,42,.2);color:rgba(246,241,230,.55);text-decoration:line-through">Disruptivo</span>
+        <span class="badge" style="background:rgba(214,58,42,.2);color:rgba(246,241,230,.55);text-decoration:line-through">Revolucionário</span>
+        <span class="badge" style="background:rgba(214,58,42,.2);color:rgba(246,241,230,.55);text-decoration:line-through">Inovador</span>
+        <span class="badge" style="background:rgba(214,58,42,.2);color:rgba(246,241,230,.55);text-decoration:line-through">Premium</span>
+        <span class="badge" style="background:rgba(214,58,42,.2);color:rgba(246,241,230,.55);text-decoration:line-through">Hype</span>
+        <span class="badge" style="background:rgba(214,58,42,.2);color:rgba(246,241,230,.55);text-decoration:line-through">Lifestyle</span>
+        <span class="badge" style="background:rgba(214,58,42,.2);color:rgba(246,241,230,.55);text-decoration:line-through">Mágico</span>
+        <span class="badge" style="background:rgba(214,58,42,.2);color:rgba(246,241,230,.55);text-decoration:line-through">Hack</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFÓLIO -->
+<section id="portfolio" class="section">
+  <p class="sec-label">08 — Portfólio · 11 Cervejas</p>
+  <h2 class="sec-title">Uma cor. Uma identidade.</h2>
+  <div class="beers-grid">
+    <div class="beer-card"><div class="beer-header" style="background:var(--pilsen)"><p class="beer-num" style="color:rgba(20,17,12,.55)">01</p><p class="beer-name" style="color:var(--ink)">PILSEN</p><p class="beer-style" style="color:rgba(20,17,12,.65)">Pilsen · golden</p></div><div class="beer-foot"><div class="beer-hex">#F4C115</div><div class="beer-pair">--pilsen</div></div></div>
+    <div class="beer-card"><div class="beer-header" style="background:var(--session)"><p class="beer-num" style="color:rgba(20,17,12,.55)">02</p><p class="beer-name" style="color:var(--ink)">SESSION IPA</p><p class="beer-style" style="color:rgba(20,17,12,.65)">Session IPA · lime</p></div><div class="beer-foot"><div class="beer-hex">#9BD32C</div><div class="beer-pair">--session</div></div></div>
+    <div class="beer-card"><div class="beer-header" style="background:var(--ipa)"><p class="beer-num" style="color:rgba(20,17,12,.55)">03</p><p class="beer-name" style="color:var(--ink)">IPA</p><p class="beer-style" style="color:rgba(20,17,12,.65)">IPA · teal</p></div><div class="beer-foot"><div class="beer-hex">#2DC9C9</div><div class="beer-pair">--ipa</div></div></div>
+    <div class="beer-card"><div class="beer-header" style="background:var(--czech)"><p class="beer-num" style="color:rgba(246,241,230,.55)">04</p><p class="beer-name" style="color:var(--cream)">CZECH PILS</p><p class="beer-style" style="color:rgba(246,241,230,.65)">Pilsner Tcheca · forest</p></div><div class="beer-foot"><div class="beer-hex">#2A6E1F</div><div class="beer-pair">--czech · par: #B3D34A lime</div></div></div>
+    <div class="beer-card"><div class="beer-header" style="background:var(--okto)"><p class="beer-num" style="color:rgba(246,241,230,.55)">05</p><p class="beer-name" style="color:var(--cream)">OKTOBERFEST</p><p class="beer-style" style="color:rgba(246,241,230,.65)">Lager Alemã · royal blue</p></div><div class="beer-foot"><div class="beer-hex">#1F6CC9</div><div class="beer-pair">--okto · par: #D6E3DF mint</div></div></div>
+    <div class="beer-card"><div class="beer-header" style="background:var(--porter)"><p class="beer-num" style="color:rgba(246,241,230,.55)">06</p><p class="beer-name" style="color:var(--cream)">CHOCOLATE PORTER</p><p class="beer-style" style="color:rgba(246,241,230,.65)">Porter · cacao</p></div><div class="beer-foot"><div class="beer-hex">#5C2C18</div><div class="beer-pair">--porter · par: #2DB5A9 teal</div></div></div>
+    <div class="beer-card"><div class="beer-header" style="background:var(--irish)"><p class="beer-num" style="color:rgba(20,17,12,.55)">07</p><p class="beer-name" style="color:var(--ink)">IRISH RED ALE</p><p class="beer-style" style="color:rgba(20,17,12,.65)">Red Ale · orange</p></div><div class="beer-foot"><div class="beer-hex">#EB5A1E</div><div class="beer-pair">--irish · par: #A8D44A lime</div></div></div>
+    <div class="beer-card"><div class="beer-header" style="background:var(--amber)"><p class="beer-num" style="color:rgba(246,241,230,.55)">08</p><p class="beer-name" style="color:var(--cream)">AMBER LAGER</p><p class="beer-style" style="color:rgba(246,241,230,.65)">Amber · red</p></div><div class="beer-foot"><div class="beer-hex">#D63A2A</div><div class="beer-pair">--amber · par: #14224E navy</div></div></div>
+    <div class="beer-card"><div class="beer-header" style="background:var(--english)"><p class="beer-num" style="color:rgba(246,241,230,.55)">09</p><p class="beer-name" style="color:var(--cream)">ENGLISH IPA</p><p class="beer-style" style="color:rgba(246,241,230,.65)">IPA Inglesa · magenta</p></div><div class="beer-foot"><div class="beer-hex">#E8217B</div><div class="beer-pair">--english · par: #B5D34A lime</div></div></div>
+    <div class="beer-card"><div class="beer-header" style="background:var(--sevenhops)"><p class="beer-num" style="color:rgba(20,17,12,.55)">10</p><p class="beer-name" style="color:var(--ink)">7 HOPS</p><p class="beer-style" style="color:rgba(20,17,12,.65)">American IPA · lime ink</p></div><div class="beer-foot"><div class="beer-hex">#B5D34A</div><div class="beer-pair">--sevenhops · par: #4DC9EC sky</div></div></div>
+    <div class="beer-card"><div class="beer-header" style="background:var(--free)"><p class="beer-num" style="color:rgba(20,17,12,.55)">11</p><p class="beer-name" style="color:var(--ink)">IPA FREE</p><p class="beer-style" style="color:rgba(20,17,12,.65)">IPA sem álcool · sky</p></div><div class="beer-foot"><div class="beer-hex">#4DC9EC</div><div class="beer-pair">--free · par: #F6F1E6 cream</div></div></div>
+  </div>
+</section>
+
+<!-- MOTION -->
+<section id="motion" class="section section-dark">
+  <p class="sec-label">09 — Motion</p>
+  <h2 class="sec-title">Direto e celebratório.</h2>
+  <div class="motion-wrap">
+    <div class="motion-icon-wrap">
+      <svg class="motion-svg" viewBox="0 0 100 100" fill="none">
+        <path id="sp-motion" stroke="var(--cream)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      </svg>
+      <p class="motion-icon-label">Spiral spin · 8s loop</p>
+    </div>
+    <table class="motion-table">
+      <thead><tr><th>Pattern</th><th>Duration</th><th>Role</th></tr></thead>
+      <tbody>
+        <tr><td>POUR-IN</td><td>1.2s</td><td>Entrada de hero — espuma sobe do bottom</td></tr>
+        <tr><td>TOAST-IN</td><td>0.6s</td><td>Brinde "clink" — pop de scale + glow no símbolo</td></tr>
+        <tr><td>SPIRAL SPIN</td><td>8s loop</td><td>Watermark sutil — espiral gira devagar</td></tr>
+        <tr><td>LABEL SLIDE</td><td>0.4s</td><td>Troca entre linhas (Pilsen → Czech → IPA…)</td></tr>
+        <tr><td>FOAM FADE</td><td>0.3s</td><td>Hover de produto — espuma surge no topo</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- TOKENS -->
+<section id="tokens" class="section section-inksft">
+  <p class="sec-label">10 — Token Export</p>
+  <h2 class="sec-title">Cole. Funciona.</h2>
+  <div class="code-wrap">
+<pre><span class="cm">/* Gauden Design System — v1.0 (2026) */</span>
+<span class="cm">/* Cole em index.css ou globals.css    */</span>
+
+@layer base {
+  :root {
+    <span class="cm">/* —— Neutrals ———————————————————— */</span>
+    <span class="cn">--paper</span>:    <span class="cv">#EFE9DC</span>;   <span class="cm">/* canvas */</span>
+    <span class="cn">--paper-2</span>:  <span class="cv">#E6DFCF</span>;   <span class="cm">/* cards */</span>
+    <span class="cn">--cream</span>:    <span class="cv">#F6F1E6</span>;   <span class="cm">/* surface clara */</span>
+    <span class="cn">--ink</span>:      <span class="cv">#14110C</span>;   <span class="cm">/* texto · dark bg */</span>
+    <span class="cn">--ink-soft</span>: <span class="cv">#2A2620</span>;   <span class="cm">/* dark interno */</span>
+    <span class="cn">--line</span>:     rgba(20,17,12,0.14); <span class="cm">/* hairline */</span>
+
+    <span class="cm">/* —— Linha de cervejas ——————————— */</span>
+    <span class="cn">--pilsen</span>:    <span class="cv">#F4C115</span>;   <span class="cm">/* Pilsen — golden */</span>
+    <span class="cn">--session</span>:   <span class="cv">#9BD32C</span>;   <span class="cm">/* Session IPA — lime */</span>
+    <span class="cn">--ipa</span>:       <span class="cv">#2DC9C9</span>;   <span class="cm">/* IPA — teal */</span>
+    <span class="cn">--czech</span>:     <span class="cv">#2A6E1F</span>;   <span class="cm">/* Czech Pils — forest */</span>
+    <span class="cn">--okto</span>:      <span class="cv">#1F6CC9</span>;   <span class="cm">/* Oktoberfest — royal blue */</span>
+    <span class="cn">--porter</span>:    <span class="cv">#5C2C18</span>;   <span class="cm">/* Porter — cacao */</span>
+    <span class="cn">--irish</span>:     <span class="cv">#EB5A1E</span>;   <span class="cm">/* Irish Red — orange */</span>
+    <span class="cn">--amber</span>:     <span class="cv">#D63A2A</span>;   <span class="cm">/* Amber — red */</span>
+    <span class="cn">--english</span>:   <span class="cv">#E8217B</span>;   <span class="cm">/* English IPA — magenta */</span>
+    <span class="cn">--sevenhops</span>: <span class="cv">#B5D34A</span>;   <span class="cm">/* 7 Hops — lime ink */</span>
+    <span class="cn">--free</span>:      <span class="cv">#4DC9EC</span>;   <span class="cm">/* IPA Free — sky */</span>
+
+    <span class="cm">/* —— Radius ——————————————————————— */</span>
+    <span class="cn">--r-sm</span>: <span class="cv">6px</span>;
+    <span class="cn">--r-md</span>: <span class="cv">10px</span>;
+    <span class="cn">--r-lg</span>: <span class="cv">18px</span>;
+
+    <span class="cm">/* —— Fonts ——————————————————————— */</span>
+    <span class="cn">--font-display</span>: "Anton", "Impact", sans-serif;
+    <span class="cn">--font-body</span>:    "Montserrat", system-ui, sans-serif;
+  }
+}</pre>
+  </div>
+</section>
+
+<!-- AGENT GUIDE -->
+<section id="agente" class="section section-dark">
+  <p class="sec-label">11 — Agent Prompt Guide</p>
+  <h2 class="sec-title">12 regras. Toda peça.</h2>
+  <div class="agent-grid">
+    <div class="agent-rule"><span class="ar-num">01</span><p class="ar-text"><strong>Ancore em paper.</strong> Fundo = <code class="tk">#EFE9DC</code>. Nunca branco puro.</p></div>
+    <div class="agent-rule"><span class="ar-num">02</span><p class="ar-text"><strong>Uma cor de linha por peça.</strong> Nunca duas juntas. Régua arco-íris é a única exceção.</p></div>
+    <div class="agent-rule"><span class="ar-num">03</span><p class="ar-text"><strong>Anton sempre UPPERCASE.</strong> Manchete máx 8 palavras. Pontos finais para ritmo de brinde.</p></div>
+    <div class="agent-rule"><span class="ar-num">04</span><p class="ar-text"><strong>Body em Montserrat 500.</strong> Não use 400 como peso default — o corpo perde presença.</p></div>
+    <div class="agent-rule"><span class="ar-num">05</span><p class="ar-text"><strong>Lockup top-left.</strong> Espiral + GAUDEN + × EXPERIENCE × em toda peça master.</p></div>
+    <div class="agent-rule"><span class="ar-num">06</span><p class="ar-text"><strong>Layout 50/50</strong> com foto: esquerda cor sólida + título · direita produto hero.</p></div>
+    <div class="agent-rule"><span class="ar-num">07</span><p class="ar-text"><strong>Régua arco-íris</strong> só na borda inferior de foto de apoio. Nunca decoração geral.</p></div>
+    <div class="agent-rule"><span class="ar-num">08</span><p class="ar-text"><strong>Espiral ≤25% opacidade</strong>, só sobre cor sólida ou neutro. Nunca sobre fotografia.</p></div>
+    <div class="agent-rule"><span class="ar-num">09</span><p class="ar-text"><strong>Radius máx 18px</strong> (<code class="tk">--r-lg</code>). Sem cantos arredondados de SaaS.</p></div>
+    <div class="agent-rule"><span class="ar-num">10</span><p class="ar-text"><strong>Voz: direta, calorosa, curitibana.</strong> Verbos no imperativo. Nada do ban list.</p></div>
+    <div class="agent-rule"><span class="ar-num">11</span><p class="ar-text"><strong>Pack callout:</strong> neck label em cor de linha + <code class="tk">600 ml · X% vol</code> Montserrat 700.</p></div>
+    <div class="agent-rule"><span class="ar-num">12</span><p class="ar-text"><strong>Motion só se acrescenta.</strong> Pour-in, toast, label-slide. Nunca bouncy, glitch, parallax.</p></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-brand">GAUDEN</div>
+  <div class="footer-meta">
+    <div>Brandbook · Design System · v1.0 · 2026</div>
+    <div>Curitiba — Paraná · Brasil · Desde 2007</div>
+    <div>× Experience × · Uma experiência em cada gole.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  function spiral(cx,cy,a,t0,t1,n){
+    var pts=[];
+    for(var i=0;i<=n;i++){
+      var t=t0+(t1-t0)*(i/n), r=a*t;
+      pts.push((cx+r*Math.cos(t)).toFixed(2)+','+(cy+r*Math.sin(t)).toFixed(2));
+    }
+    return 'M '+pts.join(' L ');
+  }
+  var d=spiral(50,50,2.0,0.4,20,600);
+  ['sp-cover','sp-lockup','sp-motion'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el) el.setAttribute('d',d);
+  });
+})();
+</script>
+</body>
+</html>
