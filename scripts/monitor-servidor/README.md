@@ -65,6 +65,22 @@ Se você não vai ficar perto do computador, crie um webhook e passe a URL. No D
 
 O mesmo formato funciona em Slack e Google Chat. Aí é só ter o app no celular com notificação ligada.
 
+## Alternativa: sem deixar nada rodando
+
+Os scripts acima exigem uma janela aberta na sua máquina. Se você quer ser avisado mesmo com o computador desligado, existe o workflow `.github/workflows/monitor-servidor.yml`, que roda na infraestrutura do GitHub a cada 5 minutos:
+
+- quando o servidor cai, ele abre uma issue atribuída a você;
+- quando volta, ele comenta **"O servidor voltou"** nessa issue e a fecha.
+
+Como a issue é atribuída a você, o GitHub manda e-mail e notificação no app do celular. Não precisa criar conta em nada nem instalar serviço.
+
+Dois detalhes para saber o que esperar:
+
+- **Workflows agendados só rodam a partir do branch padrão.** Enquanto esse arquivo estiver só em um branch de feature, ele não executa. Precisa estar no `main`.
+- O agendamento do GitHub é aproximado. Em horário de pico as execuções atrasam, então o aviso pode chegar alguns minutos depois da volta real. Para o caso de "acabou a luz, quero saber quando voltar", isso é irrelevante; para algo que exige reação em segundos, use os scripts locais.
+
+O workflow testa conexão TCP nas portas 443 e 80, não ping — os runners do GitHub bloqueiam ICMP. Isso também é um sinal melhor: significa que o serviço subiu, não só que a máquina ligou. Se o seu servidor atende em outra porta, ajuste `PORTAS` no topo do arquivo.
+
 ## Observação
 
-Isso precisa rodar na sua máquina, na rede de onde você quer enxergar o servidor. Rodar em um ambiente remoto (como uma sessão do Claude na nuvem) não serve: além de a política de rede de lá bloquear o destino, o que importa é o caminho entre você e o servidor.
+Os scripts locais precisam rodar na sua máquina, na rede de onde você quer enxergar o servidor. Rodar em um ambiente remoto (como uma sessão do Claude na nuvem) não serve: além de a política de rede de lá bloquear o destino, o ambiente é descartado quando a sessão termina — o monitoramento morreria junto.

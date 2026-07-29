@@ -1,0 +1,106 @@
+name: Monitor do servidor
+
+# Testa o servidor de tempos em tempos a partir da infraestrutura do GitHub.
+# Quando ele cai, abre uma issue. Quando volta, comenta e fecha essa issue.
+# A issue e atribuida ao dono do repositorio, entao o aviso chega por e-mail
+# e no app do GitHub no celular, mesmo com o computador desligado.
+
+on:
+  schedule:
+    # A cada 5 minutos (minimo permitido). O GitHub pode atrasar execucoes
+    # agendadas em horarios de pico, entao trate como "por volta de".
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+concurrency:
+  group: monitor-servidor
+  cancel-in-progress: false
+
+env:
+  ALVO: clube.stsec.com.br
+  PORTAS: "443 80"
+  ETIQUETA: servidor-fora
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Testar o servidor
+        id: teste
+        run: |
+          # Runners do GitHub bloqueiam ICMP, entao nada de ping: o teste e
+          # abrir conexao TCP. Qualquer porta que aceitar conta como no ar.
+          estado=fora
+          for porta in $PORTAS; do
+            if timeout 8 bash -c "exec 3<>/dev/tcp/$ALVO/$porta" 2>/dev/null; then
+              echo "Conectou em $ALVO:$porta"
+              estado=no-ar
+              break
+            fi
+            echo "Sem resposta em $ALVO:$porta"
+          done
+          echo "estado=$estado" >> "$GITHUB_OUTPUT"
+          echo "Estado: $estado"
+
+      - name: Garantir que a etiqueta existe
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create "$ETIQUETA" \
+            --repo "$GITHUB_REPOSITORY" \
+            --color B60205 \
+            --description "Monitor automatico do servidor" 2>/dev/null || true
+
+      - name: Avisar conforme o estado
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ESTADO: ${{ steps.teste.outputs.estado }}
+        run: |
+          set -euo pipefail
+
+          # A issue aberta com a etiqueta e a memoria do monitor: se ela existe,
+          # o servidor ja estava fora do ar na verificacao anterior.
+          aberta=$(gh issue list \
+            --repo "$GITHUB_REPOSITORY" \
+            --label "$ETIQUETA" \
+            --state open \
+            --limit 1 \
+            --json number \
+            --jq '.[0].number // empty')
+
+          agora=$(TZ=America/Sao_Paulo date '+%d/%m/%Y as %H:%M:%S')
+
+          if [ "$ESTADO" = "no-ar" ]; then
+            if [ -n "$aberta" ]; then
+              corpo=$(printf '%s\n' \
+                "## O servidor voltou" \
+                "" \
+                "O host $ALVO respondeu em $agora (horario de Brasilia)." \
+                "" \
+                "Aviso automatico do monitor.")
+              gh issue comment "$aberta" --repo "$GITHUB_REPOSITORY" --body "$corpo"
+              gh issue close "$aberta" --repo "$GITHUB_REPOSITORY"
+              echo "Servidor voltou. Issue #$aberta comentada e fechada."
+            else
+              echo "Servidor no ar e nenhum alerta aberto. Nada a fazer."
+            fi
+          else
+            if [ -n "$aberta" ]; then
+              echo "Servidor ainda fora do ar. Issue #$aberta ja esta aberta."
+            else
+              corpo=$(printf '%s\n' \
+                "O monitor nao conseguiu conectar em $ALVO (portas testadas: $PORTAS) em $agora (horario de Brasilia)." \
+                "" \
+                "Esta issue vai ser comentada e fechada automaticamente assim que o servidor voltar a responder.")
+              gh issue create \
+                --repo "$GITHUB_REPOSITORY" \
+                --title "Servidor $ALVO fora do ar" \
+                --label "$ETIQUETA" \
+                --assignee "$GITHUB_REPOSITORY_OWNER" \
+                --body "$corpo"
+              echo "Alerta de queda criado."
+            fi
+          fi
