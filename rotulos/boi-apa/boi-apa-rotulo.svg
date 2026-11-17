@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1000" viewBox="0 0 1700 1000">
+<defs>
+<style>
+.t{font-family:'Oswald','Bebas Neue','Impact','Arial Narrow',sans-serif;text-transform:uppercase;fill:#E9DCC3}
+.s{font-family:'Arial Narrow','Arial',sans-serif;text-transform:uppercase;fill:#E9DCC3}
+</style>
+<pattern id="g" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#1B1714"/><circle cx="1" cy="1" r=".6" fill="#2A241F"/></pattern>
+</defs>
+<!-- FRENTE -->
+<rect x="0" y="0" width="1100" height="1000" fill="url(#g)"/>
+<rect x="30" y="30" width="1040" height="940" fill="none" stroke="#C8873A" stroke-width="4"/>
+<rect x="44" y="44" width="1012" height="912" fill="none" stroke="#C8873A" stroke-width="1.5"/>
+<text class="s" x="550" y="110" text-anchor="middle" font-size="26" letter-spacing="10">CURITIBA · CASA DE CARNES</text>
+<line x1="250" y1="135" x2="850" y2="135" stroke="#C8873A" stroke-width="2"/>
+<!-- touro original (placeholder da marca) -->
+<g transform="translate(550,330)" fill="#C8873A">
+<path d="M-250,-120 C-200,-40 -150,-20 -95,-30 L-80,-60 C-130,-55 -190,-70 -250,-120Z"/>
+<path d="M250,-120 C200,-40 150,-20 95,-30 L80,-60 C130,-55 190,-70 250,-120Z"/>
+<path d="M-95,-60 L95,-60 L120,-20 L80,90 L40,150 L-40,150 L-80,90 L-120,-20Z"/>
+<path d="M-120,-20 L-175,-5 L-110,25Z"/><path d="M120,-20 L175,-5 L110,25Z"/>
+<g fill="#1B1714">
+<path d="M-70,0 L-30,15 L-65,30Z"/><path d="M70,0 L30,15 L65,30Z"/>
+<ellipse cx="-22" cy="118" rx="9" ry="13"/><ellipse cx="22" cy="118" rx="9" ry="13"/>
+<path d="M0,-50 L12,-10 L0,60 L-12,-10Z"/>
+</g>
+</g>
+<text class="t" x="550" y="570" text-anchor="middle" font-size="64" letter-spacing="14" font-weight="700">BOI AND BEER</text>
+<line x1="180" y1="610" x2="920" y2="610" stroke="#C8873A" stroke-width="2"/>
+<text class="t" x="550" y="780" text-anchor="middle" font-size="200" font-weight="700" letter-spacing="6" fill="#C8873A">BOI APA</text>
+<text class="s" x="550" y="840" text-anchor="middle" font-size="34" letter-spacing="12">AMERICAN PALE ALE</text>
+<text class="s" x="140" y="915" font-size="26" letter-spacing="4">500 ML</text>
+<text class="s" x="960" y="915" font-size="26" letter-spacing="4" text-anchor="end">X,X% ABV</text>
+<!-- LATERAL -->
+<rect x="1100" y="0" width="600" height="1000" fill="#C8873A"/>
+<g font-family="Arial Narrow,Arial,sans-serif" fill="#1B1714" style="text-transform:uppercase">
+<text x="1400" y="110" text-anchor="middle" font-size="44" font-weight="700" letter-spacing="6">BOI APA</text>
+<text x="1400" y="150" text-anchor="middle" font-size="20" letter-spacing="6">AMERICAN PALE ALE</text>
+<line x1="1160" y1="180" x2="1640" y2="180" stroke="#1B1714" stroke-width="2"/>
+<text x="1160" y="230" font-size="19">CERVEJA CLARA, LUPULADA, DE AMARGOR</text>
+<text x="1160" y="258" font-size="19">EQUILIBRADO. FEITA PARA A BRASA:</text>
+<text x="1160" y="286" font-size="19">CORTA A GORDURA E PEDE O PRÓXIMO CORTE.</text>
+<g font-size="22" font-weight="700">
+<text x="1160" y="360">ABV</text><text x="1640" y="360" text-anchor="end">X,X%</text>
+<text x="1160" y="400">IBU</text><text x="1640" y="400" text-anchor="end">XX</text>
+<text x="1160" y="440">TEMP. DE SERVIÇO</text><text x="1640" y="440" text-anchor="end">4–6 °C</text>
+<text x="1160" y="480">HARMONIZA</text><text x="1640" y="480" text-anchor="end">CARNES NA BRASA</text>
+</g>
+<line x1="1160" y1="510" x2="1640" y2="510" stroke="#1B1714" stroke-width="1"/>
+<text x="1160" y="550" font-size="17">INGREDIENTES: ÁGUA, MALTE, LÚPULO E LEVEDURA.</text>
+<text x="1160" y="576" font-size="17">CONTÉM GLÚTEN. REG. MAPA: XX-XXXXX-X</text>
+<text x="1160" y="602" font-size="17">PRODUZIDO E ENVASADO POR: [RAZÃO SOCIAL GALDEN]</text>
+<text x="1160" y="628" font-size="17">CNPJ XX.XXX.XXX/0001-XX · CURITIBA/PR</text>
+<text x="1160" y="654" font-size="17">LOTE / VAL.: VER GARGALO</text>
+<!-- QR placeholder -->
+<rect x="1160" y="700" width="170" height="170" fill="none" stroke="#1B1714" stroke-width="3"/>
+<text x="1245" y="790" text-anchor="middle" font-size="18" font-weight="700">QR CODE</text>
+<text x="1350" y="760" font-size="17">CONHEÇA A CERVEJA</text>
+<text x="1350" y="784" font-size="17">DA CASA</text>
+<!-- flor Galden discreta (placeholder) -->
+<g transform="translate(1590,800)" fill="#1B1714" opacity=".85">
+<circle r="7"/>
+<g><ellipse cy="-17" rx="7" ry="11"/><ellipse cy="-17" rx="7" ry="11" transform="rotate(72)"/><ellipse cy="-17" rx="7" ry="11" transform="rotate(144)"/><ellipse cy="-17" rx="7" ry="11" transform="rotate(216)"/><ellipse cy="-17" rx="7" ry="11" transform="rotate(288)"/></g>
+</g>
+<text x="1590" y="850" text-anchor="middle" font-size="14" letter-spacing="2">GALDEN</text>
+<text x="1400" y="950" text-anchor="middle" font-size="14">BEBA COM MODERAÇÃO. VENDA PROIBIDA PARA MENORES DE 18 ANOS.</text>
+</g>
+<line x1="1100" y1="0" x2="1100" y2="1000" stroke="#1B1714" stroke-width="2" stroke-dasharray="8 8"/>
+</svg>
